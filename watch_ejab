@@ -1,0 +1,18 @@
+#!/bin/sh
+
+sleep 30
+while :
+do
+    if ! pgrep -f ejabberd
+    then
+        date
+        echo "ejabberd is down, restarting..."
+        ejabberdctl start
+        echo "ejabberd restarted"
+	/root/watchejab
+        break
+    fi
+
+    sleep 30
+    
+done;

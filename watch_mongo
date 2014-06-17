@@ -1,0 +1,4 @@
+set `date +"%Y%m%d"`
+rm -rf /root/dump
+mongodump -h localhost -db testdb
+tar -czvf /root/backups/testdb_${1}.tar.gz /root/dump
